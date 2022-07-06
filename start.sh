@@ -91,6 +91,21 @@ coverage/
 printf "adding .prettierrc \n";
 echo '{}' > .prettierrc;
 printf "adding required scripts to the package.json \n";
+
+mkdir src public;
+echo '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <noscript>enable javascript to view the page</noscript>
+    <div id="root"></div>
+</body>
+</html>' > public/index.html; 
 echo 'const fs = require("fs");
 
 fs.readFile("package.json", "utf8", (err, data) => {
@@ -101,7 +116,7 @@ fs.readFile("package.json", "utf8", (err, data) => {
   data = JSON.parse(data);
   data.scripts = {};
   data.scripts["predev"] = `prettier --write "src/**/*.{js,jsx}"`;
-  data.scripts["dev"] = "parcel src/index.html";
+  data.scripts["dev"] = "parcel public/index.html";
   data.scripts["format"] = `prettier --write "src/**/*.{js,jsx}"`;
   data.scripts["lint"] = `eslint "src/**/*.{js,jsx}" --quiet`;
   data.scripts["build"] =
