@@ -83,21 +83,6 @@ echo '{
 }' > .parcelrc;
 
 echo '{
-  "presets": [
-    [
-      "@babel/preset-react",
-      {
-        "runtime": "automatic"
-      }
-    ],
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "entry",
-        "corejs": { "version": "3.18.1", "proposals": true }
-      }
-    ]
-  ],
   "plugins": [
     "@babel/plugin-transform-runtime"
   ]
