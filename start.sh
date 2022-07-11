@@ -123,7 +123,7 @@ fs.readFile("package.json", "utf8", (err, data) => {
   }
   data = JSON.parse(data);
   data.scripts = {};
-  data.scripts["predev"] = `prettier --write "src/**/*.{js,jsx}"`;
+  data.scripts["clear"] = `rm -rf dist .parcel-cache"`;
   data.scripts["dev"] = "parcel public/index.html";
   data.scripts["format"] = `prettier --write "src/**/*.{js,jsx}"`;
   data.scripts["lint"] = `eslint "src/**/*.{js,jsx}" --quiet`;
