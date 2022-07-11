@@ -22,11 +22,13 @@ printf "eslint installed \n";
 printf "eslint-config-prettier installed \n";
 printf "installing eslint \n";
 printf "installing @babel/core @babel/preset-react @babel/eslint-parser \n";
-npm install -D @babel/core @babel/preset-react @babel/eslint-parser;
+npm install -D @babel/core @babel/preset-react @babel/eslint-parser @babel/preset-env @babel/plugin-transform-runtime;
 printf "@babel/core @babel/preset-react @babel/eslint-parser installed \n";
 printf "installing eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks \n ";
 npm install -D eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks;
 printf "eslint-plugin-import eslint-plugin-jsx-a11y eslint-plugin-react eslint-plugin-react-hooks installed \n";
+printf "adding core-js";
+npm i core-js@3.18.1 --save;
 printf "adding .eslintrc.json \n";
 echo '{
     "env": {
@@ -79,6 +81,27 @@ echo '{
     "*.svg": ["@parcel/transformer-svg-react"]
   }
 }' > .parcelrc;
+
+echo '{
+  "presets": [
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic"
+      }
+    ],
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": { "version": "3.18.1", "proposals": true }
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ]
+}' > .babelrc ;
 
 printf "adding .gitignore \n";
 echo 'node_modules
