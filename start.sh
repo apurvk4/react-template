@@ -109,9 +109,10 @@ echo '<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<link rel="stylesheet" type="text/css" src="/style.css" />
 <body>
     <noscript>enable javascript to view the page</noscript>
-    <div id="root"></div>
+    <div id="root">hi hello lol omg</div>
 </body>
 </html>' > public/index.html; 
 echo 'const fs = require("fs");
