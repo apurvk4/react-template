@@ -9,4 +9,4 @@ my own react template for starting any new react projects using vite+react but w
 ```npm i degit --location=global```
 
 ### then create project using degit
-```npx degit apurv/react-starter-template#main your-project-name```
+```npx degit apurvk4/react-starter-template#main your-project-name```
